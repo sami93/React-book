@@ -14,30 +14,30 @@ import {
 } from '../../store/actions/data_action';
 import selectImageById from '../../store/selectors/selectImageById';
 
-const goToDetailPicture = (itemRecipe, history) => {
+const goToDetailPicture = (bookItem, history) => {
   history.push({
-    pathname: `/image/${itemRecipe.id}`,
-    // search: '?id=' + this.itemRecipe.id,
+    pathname: `/image/${bookItem.id}`,
+    // search: '?id=' + this.bookItem.id,
   });
 };
 
 const onStarChangeRate = (props, nextRate) => {
-  props.ChangeRating(props.fieldData.recipes, props.itemRecipe.id, nextRate);
+  props.ChangeRating(props.fieldData.books, props.bookItem.id, nextRate);
 };
 
 const RecipeItem = props => {
   let { history } = props;
-  return props.itemRecipe ? (
+  return props.bookItem ? (
     <span className={css(container)}>
       <img
         className={css(styleImg)}
         alt=""
-        src={props.itemRecipe.image}
+        src={props.bookItem.cover}
         onClick={() => {
-          goToDetailPicture(props.itemRecipe, history);
+          goToDetailPicture(props.bookItem, history);
         }}
       />
-      <div className={css(favBlock)}>
+      {/* <div className={css(favBlock)}>
         <Rating
           classeName={css(star)}
           rating={
@@ -49,17 +49,17 @@ const RecipeItem = props => {
             onStarChangeRate(props, nextRate);
           }}
         />
-      </div>
-      <div className={css(favBlock1)}>
+      </div> */}
+      {/* <div className={css(favBlock1)}>
         <FontAwesomeIcon
           onClick={() => {
-            props.ChangeFavori(props.fieldData.recipes, props.itemRecipe.id);
+            props.ChangeFavori(props.fieldData.books, props.bookItem.id);
           }}
           icon={faHeart}
-          color={props.itemRecipe.favorites > 0 ? 'red' : 'grey'}
+          color={props.bookItem.favorites > 0 ? 'red' : 'grey'}
           size="sm"
         />
-      </div>{' '}
+      </div>{' '} */}
     </span>
   ) : (
     ''
@@ -67,8 +67,8 @@ const RecipeItem = props => {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  let id = ownProps.itemRecipe.id;
-  const getRecipeDetail = selectImageById(state.fieldData.recipes, id);
+  let id = ownProps.bookItem.id;
+  const getRecipeDetail = selectImageById(state.fieldData.books, id);
   return {
     fieldData: state.fieldData,
     getRecipeDetail: getRecipeDetail,

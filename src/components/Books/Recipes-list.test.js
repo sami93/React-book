@@ -72,7 +72,7 @@ describe('<Books-list />', () => {
     };
 
     return store.dispatch(postsFetchData()).then(() => {
-      expect(store.getState().fieldData.recipes[0]).toEqual(expectedRecipeItem);
+      expect(store.getState().fieldData.books[0]).toEqual(expectedRecipeItem);
     });
   });
 });

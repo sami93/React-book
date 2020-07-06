@@ -20,12 +20,12 @@ import Ingredients from './Ingredients/Ingredients';
 import Helper from '../ui/helper';
 class RecipeItemDetail extends Component {
   componentDidMount() {
-    if (this.props.fieldData.recipes.length === 0) this.props.postsFetchData();
+    if (this.props.fieldData.books.length === 0) this.props.postsFetchData();
   }
 
   onStarChangeRate = nextRate => {
     this.props.ChangeRating(
-      this.props.fieldData.recipes,
+      this.props.fieldData.books,
       this.props.match.params.id,
       nextRate
     );
@@ -61,7 +61,7 @@ class RecipeItemDetail extends Component {
                 alt=""
               />
 
-              <div className={css(styles.container)}>
+              {/* <div className={css(styles.container)}>
                 <Rating
                   rating={
                     typeof this.props.getRecipeDetail.rating === 'undefined'
@@ -70,14 +70,14 @@ class RecipeItemDetail extends Component {
                   }
                   ClickChangeRate={this.onStarChangeRate}
                 />
-              </div>
+              </div> */}
             </div>
 
-            <div className={css(styles.container2)}>
+            {/* <div className={css(styles.container2)}>
               <FontAwesomeIcon
                 onClick={() => {
                   this.props.ChangeFavori(
-                    this.props.fieldData.recipes,
+                    this.props.fieldData.books,
                     this.props.match.params.id
                   );
                 }}
@@ -87,7 +87,7 @@ class RecipeItemDetail extends Component {
                 }
                 size="lg"
               />
-            </div>
+            </div> */}
             <div className={css(styles.card)}>
               <p>{this.props.getRecipeDetail.desciption}</p>
             </div>
@@ -117,7 +117,7 @@ class RecipeItemDetail extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   let id = ownProps.match.params.id;
-  const getRecipeDetail = selectImageById(state.fieldData.recipes, id);
+  const getRecipeDetail = selectImageById(state.fieldData.books, id);
 
   return {
     fieldData: state.fieldData,

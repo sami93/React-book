@@ -1,7 +1,7 @@
 import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
-  recipes: [],
+  books: [],
 };
 
 const dataReducer = (state = initialState, action) => {
@@ -9,17 +9,17 @@ const dataReducer = (state = initialState, action) => {
     case actionTypes.LOADING_POSTS:
       return {
         ...state,
-        recipes: action.payload,
+        books: action.payload,
       };
     case actionTypes.CHANGE_FAVORI:
       return {
         ...state,
-        recipes: action.payload,
+        books: action.payload,
       };
     case actionTypes.CHANGE_RATING:
       return {
         ...state,
-        recipes: action.payload,
+        books: action.payload,
       };
     default:
       return state;

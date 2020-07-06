@@ -5,8 +5,8 @@ import getImage from '../../utils/utils';
 
 export const postsFetchData = () => dispatch => {
   return getImage().then(res => {
-    // const recipes = res.data.slice(1,LIMIT_LIST).map((item) => {
-    const recipes = res.data.map(item => {
+    // const books = res.data.slice(1,LIMIT_LIST).map((item) => {
+    const books = res.data.map(item => {
       let elementItem = { ...item };
       elementItem.valueSelected = false;
       // elementItem.rating = 0;
@@ -20,13 +20,13 @@ export const postsFetchData = () => dispatch => {
       return elementItem;
     });
 
-    dispatch({ type: types.LOADING_POSTS, payload: recipes });
+    dispatch({ type: types.LOADING_POSTS, payload: books });
   });
 };
 
-export const ChangeFavori = (recipes, id) => dispatch => {
+export const ChangeFavori = (books, id) => dispatch => {
   if (id === undefined) return null;
-  const recipesList = recipes.map(element => {
+  const recipesList = books.map(element => {
     const elementRecipe = { ...element };
     if (elementRecipe.id == id) {
       elementRecipe.favorites = elementRecipe.favorites > 0 ? 0 : 1;
@@ -37,10 +37,10 @@ export const ChangeFavori = (recipes, id) => dispatch => {
   dispatch({ type: types.CHANGE_FAVORI, payload: recipesList });
 };
 
-export const ChangeRating = (recipes, id, valueRating) => dispatch => {
+export const ChangeRating = (books, id, valueRating) => dispatch => {
   if (id === undefined) return null;
 
-  const recipesList = recipes.map(element => {
+  const recipesList = books.map(element => {
     const elementRecipe = { ...element };
     if (elementRecipe.id == id) {
       elementRecipe.rating = valueRating;

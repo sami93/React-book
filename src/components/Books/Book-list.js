@@ -19,7 +19,7 @@ class RecipesList extends Component {
     this.onChangePage = this.onChangePage.bind(this);
   }
   componentDidMount() {
-    if (this.props.fieldData.recipes.length === 0) this.props.postsFetchData();
+    if (this.props.fieldData.books.length === 0) this.props.postsFetchData();
   }
   onChangePage(pageOfItems) {
     // update state with new page of items
@@ -34,7 +34,7 @@ class RecipesList extends Component {
         return (
           <RecipeItem
             key={index}
-            itemRecipe={item}
+            bookItem={item}
             history={this.props.history}
           />
         );
@@ -49,9 +49,9 @@ class RecipesList extends Component {
           `}>
           <div className={css(styles.columnStyle)}>{recipeListItems}</div>
         </div>
-        {this.props.fieldData.recipes.length > 0 && (
+        {this.props.fieldData.books.length > 0 && (
           <Pagination
-            items={this.props.fieldData.recipes}
+            items={this.props.fieldData.books}
             onChangePage={this.onChangePage}
           />
         )}
