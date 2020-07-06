@@ -56,7 +56,7 @@ describe('<Books-list />', () => {
         'There’s nothing like the simple things in life - the smell of freshly cut grass, sitting outside on a nice sunny day, spending time with friends and family. Well here is a book that delivers simple culinary pleasures - some nice fresh fish with a crispy crust, crunchy potato wedges and some delightfully sweet sugar snap peas flavoured with cooling mint. Slip into something comfortable and relax into a delicious dinner!',
       difficulty: 0,
       fats: '8 g',
-      favorites: 1,
+      cart: 1,
       headline: 'with Sweet Potato Wedges and Minted Snap Peas',
       id: '533143aaff604d567f8b4571',
       image:

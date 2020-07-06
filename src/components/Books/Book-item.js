@@ -1,29 +1,21 @@
 import React from 'react';
 import { css } from 'emotion';
-import calculateUrl from '../../utils/calculUrl';
-import { withRouter } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import Rating from '../ui/rating2';
+import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
 import { connect } from 'react-redux';
 import {
   postsFetchData,
-  ChangeFavori,
-  ChangeRating,
+  addToCart,
 } from '../../store/actions/data_action';
 import selectImageById from '../../store/selectors/selectImageById';
 
 const goToDetailPicture = (bookItem, history) => {
   history.push({
     pathname: `/image/${bookItem.isbn}`,
-    // search: '?id=' + this.bookItem.id,
   });
 };
 
-const onStarChangeRate = (props, nextRate) => {
-  props.ChangeRating(props.fieldData.books, props.bookItem.isbn, nextRate);
-};
 
 const RecipeItem = props => {
   let { history } = props;
@@ -37,29 +29,16 @@ const RecipeItem = props => {
           goToDetailPicture(props.bookItem, history);
         }}
       />
-      {/* <div className={css(favBlock)}>
-        <Rating
-          classeName={css(star)}
-          rating={
-            typeof props.getBookDetail.rating === 'undefined'
-              ? 0
-              : props.getBookDetail.rating
-          }
-          ClickChangeRate={nextRate => {
-            onStarChangeRate(props, nextRate);
-          }}
-        />
-      </div> */}
-      {/* <div className={css(favBlock1)}>
+      <div className={css(favBlock)}>
         <FontAwesomeIcon
           onClick={() => {
-            props.ChangeFavori(props.fieldData.books, props.bookItem.id);
+            props.addToCart(props.fieldData.books, props.bookItem.isbn);
           }}
-          icon={faHeart}
-          color={props.bookItem.favorites > 0 ? 'red' : 'grey'}
-          size="sm"
+          icon={faCartPlus}
+          color={props.bookItem.cart > 0 ? 'red' : 'grey'}
+          size="lg"
         />
-      </div>{' '} */}
+      </div>{' '}
     </span>
   ) : (
     ''
@@ -77,7 +56,7 @@ const mapStateToProps = (state, ownProps) => {
 
 export default connect(
   mapStateToProps,
-  { postsFetchData, ChangeFavori, ChangeRating }
+  { postsFetchData, addToCart }
 )(RecipeItem);
 
 const styleImg = {
@@ -88,29 +67,17 @@ const styleImg = {
   cursor: 'pointer',
   boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
 };
-// const card = {
-//     boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
-//     transition: '0.3'
-// };
 
 const container = {
   position: 'relative',
 };
 
+
+
 const favBlock = {
   position: 'absolute',
-  bottom: '20px',
-  right: '20px',
-  paddingLeft: '20px',
-  paddingRight: '20px',
-};
-
-const favBlock1 = {
-  position: 'absolute',
+  cursor: 'pointer',
   bottom: '20px',
   left: '20px',
 };
 
-const star = {
-  size: '20px',
-};

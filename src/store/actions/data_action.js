@@ -24,29 +24,16 @@ export const postsFetchData = () => dispatch => {
   });
 };
 
-export const ChangeFavori = (books, id) => dispatch => {
+export const addToCart = (books, id) => dispatch => {
+  console.log("books", books, "id", id)
   if (id === undefined) return null;
-  const recipesList = books.map(element => {
-    const elementRecipe = { ...element };
-    if (elementRecipe.id == id) {
-      elementRecipe.favorites = elementRecipe.favorites > 0 ? 0 : 1;
+  const booksList = books.map(element => {
+    const elementBook = { ...element };
+    if (elementBook.isbn === id) {
+      elementBook.cart = elementBook.cart > 0 ? 0 : 1;
     }
-    return elementRecipe;
+    return elementBook;
   });
 
-  dispatch({ type: types.CHANGE_FAVORI, payload: recipesList });
-};
-
-export const ChangeRating = (books, id, valueRating) => dispatch => {
-  if (id === undefined) return null;
-
-  const recipesList = books.map(element => {
-    const elementRecipe = { ...element };
-    if (elementRecipe.id == id) {
-      elementRecipe.rating = valueRating;
-    }
-    return elementRecipe;
-  });
-
-  dispatch({ type: types.CHANGE_RATING, payload: recipesList });
+  dispatch({ type: types.CHANGE_FAVORI, payload: booksList });
 };
