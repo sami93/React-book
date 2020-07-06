@@ -33,7 +33,6 @@ class Pagination extends React.Component {
 
     // get new page of items from items array
     var pageOfItems = items.slice(pager.startIndex, pager.endIndex + 1);
-
     // update state
     this.setState({ pager: pager });
 
@@ -108,7 +107,7 @@ class Pagination extends React.Component {
               'pagination-controls__button ' +
               (pager.currentPage === 1 ? 'disabled' : '')
             }>
-            <a onClick={() => this.setPage(1)}>First</a>
+            {/* <a onClick={() => this.setPage(1)}>First</a> */}
           </div>
           <div
             className={
@@ -142,7 +141,7 @@ class Pagination extends React.Component {
               'pagination-controls__button ' +
               (pager.currentPage === pager.totalPages ? 'disabled' : '')
             }>
-            <a onClick={() => this.setPage(pager.totalPages)}>Last</a>
+            {/* <a onClick={() => this.setPage(pager.totalPages)}>Last</a> */}
           </div>
         </div>
       </div>

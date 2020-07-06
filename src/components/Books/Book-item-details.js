@@ -14,6 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
 import Helper from '../ui/helper';
+import calculBooksOnCart from '../../store/selectors/calculBooksOnCart';
 class BookItemDetail extends Component {
   componentDidMount() {
     if (this.props.fieldData.books.length === 0) this.props.postsFetchData();
@@ -26,7 +27,7 @@ class BookItemDetail extends Component {
 
   render() {
     if (!this.props.getBookDetail) return null; //spinner loading
-
+    const { booksOnCart } = this.props
     // info book
     const { title, synopsis } = this.props.getBookDetail;
     return (
@@ -37,6 +38,8 @@ class BookItemDetail extends Component {
               Return
             </button>
             <Heading>Name Of Book : </Heading>
+            {Boolean(booksOnCart) && Boolean(booksOnCart.length)
+        && <Heading>Panier: {booksOnCart.length}</Heading>}
 
             <SubHeading>
               <Helper text={title} helper={<p>This is the book name</p>} />
@@ -79,10 +82,12 @@ class BookItemDetail extends Component {
 const mapStateToProps = (state, ownProps) => {
   let id = ownProps.match.params.id;
   const getBookDetail = selectImageById(state.fieldData.books, id);
+  const booksOnCart = calculBooksOnCart(state.fieldData.books)
 
   return {
     fieldData: state.fieldData,
-    getBookDetail: getBookDetail,
+    getBookDetail,
+    booksOnCart
   };
 };
 
