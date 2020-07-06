@@ -67,7 +67,7 @@ class Cart extends Component {
         {' '}
         { Boolean(minus) && <p> Réduction  = {minus} €</p>}
         {' '}
-        { Boolean(totalPrice && totalPrice === price) && <p> Prix Total = {price} €</p>}
+        { Boolean(totalPrice) && <p> Prix Total = {price - minus} €</p>}
         {' '}
         { Boolean(sliceValue) && <p> Bon d'achat  = {sliceValue} €</p>}
         {' '}
