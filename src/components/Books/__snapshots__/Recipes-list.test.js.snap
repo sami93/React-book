@@ -3,7 +3,7 @@
 exports[`<Books-list /> should render correctly in "debug" mode 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <withRouter(Connect(RecipesList))
+  Symbol(enzyme.__unrendered__): <withRouter(Connect(BooksList))
     debug={true}
   />,
   Symbol(enzyme.__renderer__): Object {

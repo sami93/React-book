@@ -16,13 +16,13 @@ import selectImageById from '../../store/selectors/selectImageById';
 
 const goToDetailPicture = (bookItem, history) => {
   history.push({
-    pathname: `/image/${bookItem.id}`,
+    pathname: `/image/${bookItem.isbn}`,
     // search: '?id=' + this.bookItem.id,
   });
 };
 
 const onStarChangeRate = (props, nextRate) => {
-  props.ChangeRating(props.fieldData.books, props.bookItem.id, nextRate);
+  props.ChangeRating(props.fieldData.books, props.bookItem.isbn, nextRate);
 };
 
 const RecipeItem = props => {
@@ -41,9 +41,9 @@ const RecipeItem = props => {
         <Rating
           classeName={css(star)}
           rating={
-            typeof props.getRecipeDetail.rating === 'undefined'
+            typeof props.getBookDetail.rating === 'undefined'
               ? 0
-              : props.getRecipeDetail.rating
+              : props.getBookDetail.rating
           }
           ClickChangeRate={nextRate => {
             onStarChangeRate(props, nextRate);
@@ -67,11 +67,11 @@ const RecipeItem = props => {
 };
 
 const mapStateToProps = (state, ownProps) => {
-  let id = ownProps.bookItem.id;
-  const getRecipeDetail = selectImageById(state.fieldData.books, id);
+  let id = ownProps.bookItem.isbn;
+  const getBookDetail = selectImageById(state.fieldData.books, id);
   return {
     fieldData: state.fieldData,
-    getRecipeDetail: getRecipeDetail,
+    getBookDetail: getBookDetail,
   };
 };
 

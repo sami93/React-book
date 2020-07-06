@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
-import RecipesList from './components/Books/Book-list';
-import RecipeItemDetail from './components/Books/Book-item-details';
+import BooksList from './components/Books/Book-list';
+import BookItemDetail from './components/Books/Book-item-details';
 
 //import librairies of Redux
 import { Provider } from 'react-redux';
@@ -28,14 +28,14 @@ class App extends Component {
               exact
               path="/"
               render={() => {
-                return <RecipesList />;
+                return <BooksList />;
               }}
             />
             <Route
               exact
               path="/image/:id"
               render={props => {
-                return <RecipeItemDetail {...props} />;
+                return <BookItemDetail {...props} />;
               }}
             />
           </div>

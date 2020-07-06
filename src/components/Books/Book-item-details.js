@@ -18,7 +18,7 @@ import Rating from '../ui/rating2';
 
 import Ingredients from './Ingredients/Ingredients';
 import Helper from '../ui/helper';
-class RecipeItemDetail extends Component {
+class BookItemDetail extends Component {
   componentDidMount() {
     if (this.props.fieldData.books.length === 0) this.props.postsFetchData();
   }
@@ -36,10 +36,10 @@ class RecipeItemDetail extends Component {
   }
 
   render() {
-    if (!this.props.getRecipeDetail) return null; //spinner loading
+    if (!this.props.getBookDetail) return null; //spinner loading
 
     // info book
-    let name = this.props.getRecipeDetail.name;
+    let name = this.props.getBookDetail.name;
     return (
       <span className={css(styles.recipeWrapper)}>
         <div className={css(styles.container)}>
@@ -57,16 +57,16 @@ class RecipeItemDetail extends Component {
               <h1 className={css(h1)}> book name </h1>
               <img
                 className={css(styles.imgStyle)}
-                src={this.props.getRecipeDetail.thumb}
+                src={this.props.getBookDetail.thumb}
                 alt=""
               />
 
               {/* <div className={css(styles.container)}>
                 <Rating
                   rating={
-                    typeof this.props.getRecipeDetail.rating === 'undefined'
+                    typeof this.props.getBookDetail.rating === 'undefined'
                       ? 0
-                      : this.props.getRecipeDetail.rating
+                      : this.props.getBookDetail.rating
                   }
                   ClickChangeRate={this.onStarChangeRate}
                 />
@@ -83,23 +83,23 @@ class RecipeItemDetail extends Component {
                 }}
                 icon={faHeart}
                 color={
-                  this.props.getRecipeDetail.favorites > 0 ? 'red' : 'grey'
+                  this.props.getBookDetail.favorites > 0 ? 'red' : 'grey'
                 }
                 size="lg"
               />
             </div> */}
             <div className={css(styles.card)}>
-              <p>{this.props.getRecipeDetail.desciption}</p>
+              <p>{this.props.getBookDetail.desciption}</p>
             </div>
           </div>
         </div>
 
-        <Ingredients ingredients={this.props.getRecipeDetail.ingredients} />
+        <Ingredients ingredients={this.props.getBookDetail.ingredients} />
         {/* <div className={css(card)} >
 
             <div className={css(container)} >
 
-                <div >  <img className={css(styleImg)}  src="https://source.unsplash.com/collection/1163637/480x480" /><p>{this.props.getRecipeDetail.ingredients[0]}</p></div>
+                <div >  <img className={css(styleImg)}  src="https://source.unsplash.com/collection/1163637/480x480" /><p>{this.props.getBookDetail.ingredients[0]}</p></div>
                 <div >  <img className={css(styleImg)}  src="https://source.unsplash.com/collection/1163637/480x480" /><p>ingredient 2</p></div>
                 <div >  <img className={css(styleImg)}  src="https://source.unsplash.com/collection/1163637/480x480" /><p>ingredient 3</p></div>
                 <div >  <img className={css(styleImg)}  src="https://source.unsplash.com/collection/1163637/480x480" /><p>ingredient 4</p></div>
@@ -117,11 +117,11 @@ class RecipeItemDetail extends Component {
 
 const mapStateToProps = (state, ownProps) => {
   let id = ownProps.match.params.id;
-  const getRecipeDetail = selectImageById(state.fieldData.books, id);
+  const getBookDetail = selectImageById(state.fieldData.books, id);
 
   return {
     fieldData: state.fieldData,
-    getRecipeDetail: getRecipeDetail,
+    getBookDetail: getBookDetail,
   };
 };
 
@@ -135,7 +135,7 @@ const mapStateToProps = (state, ownProps) => {
 export default connect(
   mapStateToProps,
   { postsFetchData, ChangeFavori, ChangeRating }
-)(RecipeItemDetail);
+)(BookItemDetail);
 
 // const styles = {
 //     recipeWrapper: {

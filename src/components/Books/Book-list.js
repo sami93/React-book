@@ -7,7 +7,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postsFetchData } from '../../store/actions/data_action';
 import Pagination from '../ui/pagination';
-class RecipesList extends Component {
+class BooksList extends Component {
   constructor() {
     super();
 
@@ -77,7 +77,7 @@ export default withRouter(
   connect(
     mapStateToProps,
     { postsFetchData }
-  )(RecipesList)
+  )(BooksList)
 );
 
 const styles = {

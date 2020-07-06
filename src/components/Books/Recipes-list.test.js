@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
-import RecipesList from './Book-list';
+import BooksList from './Book-list';
 import RecipeItem from './Book-item';
 import { MemoryRouter } from 'react-router-dom';
 
@@ -16,7 +16,7 @@ configure({ adapter: new Adapter() });
 //Snapshot !!!!!!!
 describe('<Books-list />', () => {
   it('should render correctly in "debug" mode', () => {
-    const ListRecipe = shallow(<RecipesList debug />);
+    const ListRecipe = shallow(<BooksList debug />);
 
     expect(ListRecipe).toMatchSnapshot();
   });
@@ -40,7 +40,7 @@ describe('<Books-list />', () => {
     wrapper = mount(
       <Provider store={store}>
         <MemoryRouter>
-          <RecipesList />
+          <BooksList />
         </MemoryRouter>
       </Provider>
     );
