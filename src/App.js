@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import BooksList from './components/Books/Book-list';
@@ -9,6 +9,7 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import dataReducer from './store/reducers/data_reducer';
 import thunk from 'redux-thunk';
+import Cart from './components/Books/Cart';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const rootReducer = combineReducers({
@@ -22,6 +23,8 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
+      <Fragment>
+      <Cart />
         <Router>
           <div>
             <Route
@@ -40,6 +43,7 @@ class App extends Component {
             />
           </div>
         </Router>
+      </Fragment>
       </Provider>
     );
   }

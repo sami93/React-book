@@ -13,7 +13,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
 import Helper from '../ui/helper';
-import Cart from './Cart';
 class BookItemDetail extends Component {
   componentDidMount() {
     if (this.props.fieldData.books.length === 0) this.props.postsFetchData();
@@ -35,7 +34,6 @@ class BookItemDetail extends Component {
             <button type="button" onClick={this.goBack.bind(this)}>
               Return
             </button>
-            <Cart />
             <SubHeading>
               <Helper text={title} helper={<p>This is the book name</p>} />
             </SubHeading>

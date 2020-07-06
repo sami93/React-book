@@ -7,7 +7,6 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postsFetchData } from '../../store/actions/data_action';
 import Pagination from '../ui/pagination';
-import Cart from './Cart';
 class BooksList extends Component {
   constructor() {
     super();
@@ -44,7 +43,6 @@ class BooksList extends Component {
     return (
       <React.Fragment>
         <Heading>List of Books</Heading>
-        <Cart />
         <div
           className={css`
             display: flex;
