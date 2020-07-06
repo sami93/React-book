@@ -39,7 +39,7 @@ class BookItemDetail extends Component {
     if (!this.props.getBookDetail) return null; //spinner loading
 
     // info book
-    let name = this.props.getBookDetail.name;
+    const { title, synopsis } = this.props.getBookDetail;
     return (
       <span className={css(styles.recipeWrapper)}>
         <div className={css(styles.container)}>
@@ -50,14 +50,14 @@ class BookItemDetail extends Component {
             <Heading>Name Of Book : </Heading>
 
             <SubHeading>
-              <Helper text={name} helper={<p>This is the book name</p>} />
+              <Helper text={title} helper={<p>This is the book name</p>} />
             </SubHeading>
 
             <div className={css(styles.container1)}>
-              <h1 className={css(h1)}> book name </h1>
+              <h1 className={css(h1)}> {title} </h1>
               <img
                 className={css(styles.imgStyle)}
-                src={this.props.getBookDetail.thumb}
+                src={this.props.getBookDetail.cover}
                 alt=""
               />
 
@@ -89,12 +89,12 @@ class BookItemDetail extends Component {
               />
             </div> */}
             <div className={css(styles.card)}>
-              <p>{this.props.getBookDetail.desciption}</p>
+              {synopsis && synopsis.length && synopsis.map(description => <p>{ description}</p>)}
             </div>
           </div>
         </div>
 
-        <Ingredients ingredients={this.props.getBookDetail.ingredients} />
+        {/* <Ingredients ingredients={this.props.getBookDetail.ingredients} /> */}
         {/* <div className={css(card)} >
 
             <div className={css(container)} >
