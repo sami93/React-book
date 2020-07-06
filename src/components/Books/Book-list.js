@@ -66,12 +66,6 @@ const mapStateToProps = state => {
   };
 };
 
-// const mapDispatchToProps = dispatch => {
-//     return {
-//        postsFetchData
-
-//     }
-// }
 
 export default withRouter(
   connect(

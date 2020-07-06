@@ -16,11 +16,7 @@ const dataReducer = (state = initialState, action) => {
         ...state,
         books: action.payload,
       };
-    case actionTypes.CHANGE_RATING:
-      return {
-        ...state,
-        books: action.payload,
-      };
+
     default:
       return state;
   }
