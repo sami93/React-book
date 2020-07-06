@@ -1,2 +1,2 @@
 export const LOADING_POSTS = 'LOADING_POSTS';
-export const CHANGE_FAVORI = 'CHANGE_FAVORI';
+export const ADD_TO_CART = 'ADD_TO_CART';

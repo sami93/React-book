@@ -11,7 +11,7 @@ const dataReducer = (state = initialState, action) => {
         ...state,
         books: action.payload,
       };
-    case actionTypes.CHANGE_FAVORI:
+    case actionTypes.ADD_TO_CART:
       return {
         ...state,
         books: action.payload,

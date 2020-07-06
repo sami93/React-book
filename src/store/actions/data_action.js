@@ -10,7 +10,6 @@ export const postsFetchData = () => dispatch => {
 };
 
 export const addToCart = (books, id) => dispatch => {
-  console.log("books", books, "id", id)
   if (id === undefined) return null;
   const booksList = books.map(element => {
     const elementBook = { ...element };
@@ -20,5 +19,5 @@ export const addToCart = (books, id) => dispatch => {
     return elementBook;
   });
 
-  dispatch({ type: types.CHANGE_FAVORI, payload: booksList });
+  dispatch({ type: types.ADD_TO_CART, payload: booksList });
 };
