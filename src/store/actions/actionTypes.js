@@ -1,0 +1,3 @@
+export const LOADING_POSTS = 'LOADING_POSTS';
+export const CHANGE_FAVORI = 'CHANGE_FAVORI';
+export const CHANGE_RATING = 'CHANGE_RATING';
