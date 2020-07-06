@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow, mount } from 'enzyme';
 import BooksList from './Book-list';
-import RecipeItem from './Book-item';
+import BookItem from './Book-item';
 import { MemoryRouter } from 'react-router-dom';
 
 import { configure } from 'enzyme';
@@ -16,9 +16,9 @@ configure({ adapter: new Adapter() });
 //Snapshot !!!!!!!
 describe('<Books-list />', () => {
   it('should render correctly in "debug" mode', () => {
-    const ListRecipe = shallow(<BooksList debug />);
+    const ListBooks = shallow(<BooksList debug />);
 
-    expect(ListRecipe).toMatchSnapshot();
+    expect(ListBooks).toMatchSnapshot();
   });
 
   // Verify Header Books List
@@ -47,7 +47,7 @@ describe('<Books-list />', () => {
   });
 
   it('Find Book Item', () => {
-    let expectedRecipeItem = {
+    let expectedBookItem = {
       calories: '516 kcal',
       carbos: '47 g',
       desciption:
@@ -72,7 +72,7 @@ describe('<Books-list />', () => {
     };
 
     return store.dispatch(postsFetchData()).then(() => {
-      expect(store.getState().fieldData.books[0]).toEqual(expectedRecipeItem);
+      expect(store.getState().fieldData.books[0]).toEqual(expectedBookItem);
     });
   });
 });

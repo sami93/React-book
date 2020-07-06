@@ -30,7 +30,7 @@ class BookItemDetail extends Component {
     // info book
     const { title, synopsis } = this.props.getBookDetail;
     return (
-      <span className={css(styles.recipeWrapper)}>
+      <span className={css(styles.bookWrapper)}>
         <div className={css(styles.container)}>
           <div className={css(styles.card)}>
             <button type="button" onClick={this.goBack.bind(this)}>
@@ -94,7 +94,7 @@ export default connect(
 
 
 const styles = {
-  recipeWrapper: {
+  bookWrapper: {
     overflow: 'auto',
     marginLeft: '10px 50px 10px 150px',
     marginRight: '10px 50px 10px 150px',

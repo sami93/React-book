@@ -17,7 +17,7 @@ const goToDetailPicture = (bookItem, history) => {
 };
 
 
-const RecipeItem = props => {
+const BookItem = props => {
   let { history } = props;
   return props.bookItem ? (
     <span className={css(container)}>
@@ -57,7 +57,7 @@ const mapStateToProps = (state, ownProps) => {
 export default connect(
   mapStateToProps,
   { postsFetchData, addToCart }
-)(RecipeItem);
+)(BookItem);
 
 const styleImg = {
   padding: '25px',

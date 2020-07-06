@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import RecipeItem from './Book-item';
+import BookItem from './Book-item';
 import { css } from 'emotion';
 import Heading from '../text/Heading';
 import { withRouter } from 'react-router-dom';
@@ -27,12 +27,12 @@ class BooksList extends Component {
   }
 
   render() {
-    let recipeListItems;
+    let booksListItems;
     // Parse List Books
     if (this.state.pageOfItems.length > 0) {
-      recipeListItems = this.state.pageOfItems.map((item, index) => {
+      booksListItems = this.state.pageOfItems.map((item, index) => {
         return (
-          <RecipeItem
+          <BookItem
             key={index}
             bookItem={item}
             history={this.props.history}
@@ -47,7 +47,7 @@ class BooksList extends Component {
           className={css`
             display: flex;
           `}>
-          <div className={css(styles.columnStyle)}>{recipeListItems}</div>
+          <div className={css(styles.columnStyle)}>{booksListItems}</div>
         </div>
         {this.props.fieldData.books.length > 0 && (
           <Pagination
