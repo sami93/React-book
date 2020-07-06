@@ -1,9 +1,9 @@
 import axios from 'axios';
-import { PICSUM_URL } from '../constants';
+import { API_BOOKS_URL } from '../constants';
 
-const getImage = () => {
-  const sources = axios.get(`${PICSUM_URL}`);
+const getBook = () => {
+  const sources = axios.get(`${API_BOOKS_URL}`);
   return sources;
 };
 
-export default getImage;
+export default getBook;

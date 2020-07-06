@@ -7,7 +7,7 @@ import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { postsFetchData } from '../../store/actions/data_action';
 import Pagination from '../ui/pagination';
-import calculBooksOnCart from '../../store/selectors/calculBooksOnCart';
+import Cart from './Cart';
 class BooksList extends Component {
   constructor() {
     super();
@@ -28,7 +28,6 @@ class BooksList extends Component {
   }
 
   render() {
-    const {booksOnCart} = this.props
     let booksListItems;
     // Parse List Books
     if (this.state.pageOfItems.length > 0) {
@@ -45,9 +44,7 @@ class BooksList extends Component {
     return (
       <React.Fragment>
         <Heading>List of Books</Heading>
-        {Boolean(booksOnCart) && Boolean(booksOnCart.length)
-        && <Heading>Panier: {booksOnCart.length}</Heading>}
-
+        <Cart />
         <div
           className={css`
             display: flex;
@@ -66,10 +63,8 @@ class BooksList extends Component {
 }
 
 const mapStateToProps = state => {
-  const booksOnCart = calculBooksOnCart(state.fieldData.books)
   return {
     fieldData: state.fieldData,
-    booksOnCart
   };
 };
 
